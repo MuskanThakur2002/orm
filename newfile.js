@@ -68,39 +68,39 @@ app.route([
 
 
 
-// //for update
+//for update
 
-// app.put("/update/:id",(req,res)=>{
-//   knex.update({
-//     "first_name":req.payload.first_name,
-//     "last_name": req.payload.last_name,
-//     "bio":req.payload.bio
-//   })
-//     .table("users").where("id",req.params.id)
-//         .then(()=>{
-//           res.send("hurrey")
-//         })
-//         .catch((err)=>{
-//           console.log(err)
-//         })
-// })
+app.put("/update/:id",(req,res)=>{
+  knex.update({
+    "first_name":req.payload.first_name,
+    "last_name": req.payload.last_name,
+    "bio":req.payload.bio
+  })
+    .table("users").where("id",req.params.id)
+        .then(()=>{
+          res.send("hurrey")
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+})
 
-// //for delete
+//for delete
 
-// app.delete("/delete/:id",(req,res)=>{
-//   knex('users')
-//     .where({"id":req.params.id}).del()
-//     .then(()=>{
-//       res.send("deleted")
-//     })
-//     .catch((err)=>{
-//       console.log(err)
-//     })
-// })
+app.delete("/delete/:id",(req,res)=>{
+  knex('users')
+    .where({"id":req.params.id}).del()
+    .then(()=>{
+      res.send("deleted")
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+})
 
-// app.listen(9000,()=>{
-//   console.log("welcome to express")
+app.listen(9000,()=>{
+  console.log("welcome to express")
 
-// })
+})
 app.start()
 console.log("started")
